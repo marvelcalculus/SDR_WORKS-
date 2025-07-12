@@ -1,5 +1,4 @@
 import streamlit as st
-from datetime import datetime
 
 st.set_page_config(page_title="SolidWorks Dimension Editor", layout="centered")
 
@@ -9,10 +8,9 @@ st.image("images.jpeg", width=200)
 st.markdown("Enter values below to update the model. All units are in `mm`.")
 
 # GVW input
-gvw = st.number_input("Gross Vehicle Weight (GVW) in Tons",
-                      min_value=0.0, value=10.0)
+gvw = st.number_input("Gross Vehicle Weight (GVW) in Tons", min_value=0.0, value=10.0)
 
-# Auto-classify inner_width based on GVW
+# Auto-classify Inner Width
 if 7.5 <= gvw <= 8.5:
     inner_width = 150.0
 elif 9 <= gvw <= 13:
@@ -24,21 +22,20 @@ elif 20 <= gvw <= 23:
 elif 24 <= gvw <= 28:
     inner_width = 300.0
 else:
-    inner_width = 201.0  # Default/fallback value if GVW doesn't match
+    inner_width = 201.0  # default
 
 st.markdown(f"### Auto-selected Inner Width SQT: `{inner_width} mm`")
 
-# Other input fields
+# Input fields
 r1 = st.number_input("Radius r1", min_value=0.0, value=10.0)
 t1 = st.number_input("thickness t1", min_value=0.0, value=10.0)
 t2 = st.number_input("thickness t2", min_value=0.0, value=10.0)
 r4 = st.number_input("Radius r4", min_value=0.0, value=20.0)
 mf_thick = st.number_input("MF Thick", min_value=0.0, value=49.5)
 mf_cc_offset = st.number_input("MF CC Offset", min_value=0.0, value=22.5)
-mf_top_offset = st.number_input(
-    "MF Top Offset (Optional)", min_value=0.0, value=22.25)
+mf_top_offset = st.number_input("MF Top Offset (Optional)", min_value=0.0, value=22.25)
 
-if st.button("💾 Save & Update Model"):
+if st.button("💾 Save & Generate File"):
     content = f'''"Radius r1" = {r1}mm
 "thickness t1" = {t1}mm
 "Radius r2" = "Radius r1" + "thickness t1"
@@ -57,8 +54,9 @@ if st.button("💾 Save & Update Model"):
 "MF Top Offset" = "MF Height"+{mf_top_offset}mm
 '''
 
-# Enable download of the file
-  st.download_button(
+    st.success("✅ Equations generated successfully!")
+
+    st.download_button(
         label="📥 Download Equations.txt",
         data=content,
         file_name="Equations.txt",
