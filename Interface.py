@@ -57,7 +57,7 @@ if st.button("💾 Save & Update Model"):
 "MF Top Offset" = "MF Height"+{mf_top_offset}mm
 '''
 
-    with open("C:\\Users\\pgaut\\OneDrive - Anna University\\Desktop\\Internship\\SDR_WORK\\Designs\\OUTRIGGER_STANDARD\\Equations.txt", "w") as f:
+    with open("Equations.txt", "w") as f:
         f.write(content)
 
     st.success("Text file updated successfully ✅")
