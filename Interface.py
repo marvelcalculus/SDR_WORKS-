@@ -4,7 +4,7 @@ from datetime import datetime
 st.set_page_config(page_title="SolidWorks Dimension Editor", layout="centered")
 
 st.title("🔧 SolidWorks Outrigger Editor")
-st.image("C:\\Users\\pgaut\\OneDrive - Anna University\\Desktop\\Internship\\SDR_WORK\\images.jpeg", width=200)
+st.image("images.jpeg", width=200)
 
 st.markdown("Enter values below to update the model. All units are in `mm`.")
 
