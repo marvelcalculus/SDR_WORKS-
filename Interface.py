@@ -57,9 +57,10 @@ if st.button("💾 Save & Update Model"):
 "MF Top Offset" = "MF Height"+{mf_top_offset}mm
 '''
 
-    with open("Equations.txt", "w") as f:
-        f.write(content)
-
-    st.success("Text file updated successfully ✅")
-    st.markdown("---")
-    st.markdown("🔁 **Now run your SolidWorks macro to apply the changes.**")
+ # Enable download of the file
+    st.download_button(
+        label="📥 Download Equations.txt",
+        data=content,
+        file_name="Equations.txt",
+        mime="text/plain"
+    )
