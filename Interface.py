@@ -58,7 +58,7 @@ if st.button("💾 Save & Update Model"):
 '''
 
  # Enable download of the file
-    st.download_button(
+  st.download_button(
         label="📥 Download Equations.txt",
         data=content,
         file_name="Equations.txt",
