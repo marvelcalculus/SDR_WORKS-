@@ -1,0 +1,16 @@
+"Radius r1" = 10.0mm
+"thickness t1" = 10.0mm
+"Radius r2" = "Radius r1" + "thickness t1"
+"thickness t2" = 10.0mm
+"Radius r3" = "Radius r2" + "thickness t2"
+"Radius r4" = 20.0mm
+"Inner Width SQT" = 260.0mm
+"Outer Width SQT" = "Inner Width SQT" + 2*"thickness t1"
+"MF Inner Width" = "Outer Width SQT" + 2*"thickness t2"
+"MF Thick" = 49.5mm
+"MF Outer Width" = "MF Inner Width" + 2*"MF Thick"
+"FC Height" = ("Inner Width SQT"/2)+45mm
+"MF Height" = ("FC Height"/2) + 70mm
+"MF CC Offset" = 22.5mm
+"MF CC" = "MF Outer Width"-(2*"MF CC Offset")
+"MF Top Offset" = "MF Height"+22.25mm
